@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <title>Redirecting...</title>
     <script>
-      // Apple returns tokens in the URL hash (#)
       const hash = window.location.hash.substr(1);
       const queryParams = new URLSearchParams(hash);
       const queryString = queryParams.toString();
 
-      // Redirect back to the app with the full query string
-      window.location.href = `preplink://callback#${queryString}`;
+      // ✅ Redirect back to the app using query parameters (not fragment!)
+      window.location.href = `preplink://callback?${queryString}`;
     </script>
   </head>
   <body>
